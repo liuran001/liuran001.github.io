@@ -18,21 +18,30 @@
   <meta name="author" content="笨蛋ovo">
   <meta name="keywords" content="Blog,博客,笨蛋ovo,liuran001,BDovo,Android,刷机,Linux,Windows,搞机助手,搞机助手·R,高中生,碎碎念,自留地,小破站">
   
-    <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+    <meta name="description" content="前言一直以来我都在寻找一种「优雅」的方式将PC上的音频投送到音箱等设备播放，类似小米秒播这种形式。不过小米秒播只支持小米自家的设备，用蓝牙传输的话也不太稳定，但大部分音箱设备都支持DLNA，所以就有了用pulseaudio-dlna连接的想法。最近把我用了很久的Ubuntu换成了Arch，就顺便写篇文章记录下，也避免后人踩坑。 这种方式传输的优劣： 优  传输音质高 传输稳定 硬件要求低（只需要有">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://blog.qqcn.xyz/2022/05/01/hello-world/">
+<meta property="og:title" content="2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna">
+<meta property="og:url" content="https://blog.qqcn.xyz/2022/05/01/Install-Pulseaudio-dlna-On-Arch-And-Ubuntu/">
 <meta property="og:site_name" content="笨蛋自留地">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="前言一直以来我都在寻找一种「优雅」的方式将PC上的音频投送到音箱等设备播放，类似小米秒播这种形式。不过小米秒播只支持小米自家的设备，用蓝牙传输的话也不太稳定，但大部分音箱设备都支持DLNA，所以就有了用pulseaudio-dlna连接的想法。最近把我用了很久的Ubuntu换成了Arch，就顺便写篇文章记录下，也避免后人踩坑。 这种方式传输的优劣： 优  传输音质高 传输稳定 硬件要求低（只需要有">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-05-01T15:03:14.855Z">
+<meta property="og:image" content="https://blog.qqcn.xyz/img/2022/05/01/1.png">
+<meta property="og:image" content="https://blog.qqcn.xyz/img/2022/05/01/2.png">
+<meta property="og:image" content="https://blog.qqcn.xyz/img/2022/05/01/3.png">
+<meta property="og:image" content="https://blog.qqcn.xyz/img/2022/05/01/4.jpg">
+<meta property="article:published_time" content="2022-05-01T15:02:37.000Z">
 <meta property="article:modified_time" content="2022-05-01T15:03:14.855Z">
 <meta property="article:author" content="笨蛋ovo">
-<meta property="article:tag" content="Blog,博客,笨蛋ovo,liuran001,BDovo,Android,刷机,Linux,Windows,搞机助手,搞机助手·R,高中生,碎碎念,自留地,小破站">
+<meta property="article:tag" content="Linux">
+<meta property="article:tag" content="Arch">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="Pulseaudio">
+<meta property="article:tag" content="Pulseaudio-dlna">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://blog.qqcn.xyz/img/2022/05/01/1.png">
   
   
-  <title>Hello World - 笨蛋自留地</title>
+  <title>2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna - 笨蛋自留地</title>
 
   <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
 
@@ -207,7 +216,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Hello World"></span>
+            <span id="subtitle" data-typed-text="2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna"></span>
           
         </div>
 
@@ -223,7 +232,7 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2022-05-01 23:03" pubdate>
+        <time datetime="2022-05-01 23:02" pubdate>
           2022年5月1日 晚上
         </time>
       </span>
@@ -235,7 +244,7 @@
       <span class="post-meta mr-2">
         <i class="iconfont icon-chart"></i>
         
-          367 字
+          2.5k 字
         
       </span>
     
@@ -246,7 +255,7 @@
         
         
         
-          4 分钟
+          21 分钟
         
       </span>
     
@@ -292,7 +301,7 @@
         <div id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna</h1>
             
               <p class="note note-info">
                 
@@ -304,19 +313,32 @@
             
             <div class="markdown-body">
               
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+              <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一直以来我都在寻找一种「优雅」的方式将PC上的音频投送到音箱等设备播放，类似小米秒播这种形式。不过小米秒播只支持小米自家的设备，用蓝牙传输的话也不太稳定，但大部分音箱设备都支持DLNA，所以就有了用pulseaudio-dlna连接的想法。最近把我用了很久的Ubuntu换成了Arch，就顺便写篇文章记录下，也避免后人踩坑。</p>
+<p>这种方式传输的优劣：</p>
+<p>优</p>
+<ul>
+<li>传输音质高</li>
+<li>传输稳定</li>
+<li>硬件要求低（只需要有稳定的局域网连接）</li>
+</ul>
+<p>劣</p>
+<ul>
+<li>传输延迟较高（5-10秒）<br>一般放音乐没多大影响，看剧啥的还是放弃吧（<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs stata">Tip: 这篇教程以<span class="hljs-keyword">Arch</span>为例，本人仅在<span class="hljs-keyword">Arch</span>和Ubuntu上测试过，其他系统理论同理，请自行研究～<br></code></pre></td></tr></table></figure></li>
+</ul>
+<h1 id="开始"><a href="#开始" class="headerlink" title="开始"></a>开始</h1><p>我选择的是GitLab上的<a target="_blank" rel="noopener" href="https://gitlab.com/joecksma/pulseaudio-dlna">pulseaudio-dlna</a>仓库，因为GitHub上的原版年久失修（而且之前好像试过没跑起来？）<br>按照README的提示，我们需要先准备安装一些依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta prompt_"># </span><span class="language-bash">Ubuntu</span><br>sudo apt-get install python3 python3-pip python3-setuptools python3-dbus python3-docopt python3-requests python3-setproctitle python3-gi python3-notify2 python3-psutil python3-chardet python3-netifaces python3-pyroute2 python3-netaddr python3-lxml python3-pychromecast vorbis-tools sox lame flac faac opus-tools virtualenv python3-dev<br><span class="hljs-meta prompt_"></span><br><span class="hljs-meta prompt_"># </span><span class="language-bash">Arch</span><br>sudo pacman -S yay<br>yay -S python3 python-pip python-setuptools python-dbus python-docopt python-requests python-setproctitle python-gobject python-notify2 python-psutil python-chardet python-netifaces python-pyroute2 python-netaddr python-lxml python-pychromecast vorbis-tools sox lame flac faac opus-tools python-virtualenv<br><span class="hljs-meta prompt_"># </span><span class="language-bash">注：yay下安装软件**不需要**root权限</span><br></code></pre></td></tr></table></figure>
+<p>在Arch下安装的时候yay可能会提示需要选择提供者，直接回车即可<br><img src="/img/2022/05/01/1.png" srcset="/img/loading.gif" lazyload alt="1"></p>
+<p>完成准备工作之后clone<a target="_blank" rel="noopener" href="https://gitlab.com/joecksma/pulseaudio-dlna">这个仓库</a></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">git clone https://gitlab.com/joecksma/pulseaudio-dlna.git<br></code></pre></td></tr></table></figure>
+<p>最后构建</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs shell">cd pulseaudio-dlna<br>make<br></code></pre></td></tr></table></figure>
+<figure class="highlight autohotkey"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs autohotkey"><span class="hljs-title">Tip:</span> 不要执行`make install`，这会导致执行pulseaudio-dlna时报错，你可以通过将`bin/pulseaudio-dlna`移动到`/usr/bin`下来达到相同目的<br></code></pre></td></tr></table></figure>
+<p>构建的文件会在<code>bin/pulseaudio-dlna</code>，我们先执行下看看<br><img src="/img/2022/05/01/2.png" srcset="/img/loading.gif" lazyload alt="2"><br>可见，pulseaudio-dlna已经成功跑起来了，那我们放个音频试试<br>（跑不起来的确定已经安装pulseaudio）<br><img src="/img/2022/05/01/3.png" srcset="/img/loading.gif" lazyload alt="3"><br>寄！但是别慌，我们看下日志</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs routeros"><span class="hljs-built_in">INFO</span>     There was <span class="hljs-literal">no</span> suitable codec found <span class="hljs-keyword">for</span> <span class="hljs-string">&quot;小爱音箱-7838 (DLNA)&quot;</span>. The device can play <span class="hljs-string">&quot;&quot;</span>. Install one of following encoders: <span class="hljs-string">&quot;&quot;</span>. You can also try <span class="hljs-keyword">to</span> <span class="hljs-built_in">disable</span> the mime<span class="hljs-built_in"> type </span>check with the <span class="hljs-string">&quot;--disable-mimetype-check&quot;</span> flag. But be warned: <span class="hljs-keyword">In</span> that way you can use codecs your device does <span class="hljs-keyword">not</span> support officially <span class="hljs-keyword">and</span> this could lead <span class="hljs-keyword">to</span> distortions <span class="hljs-keyword">or</span> <span class="hljs-keyword">in</span> rare cases <span class="hljs-keyword">to</span> speaker damage!<br><span class="hljs-built_in">ERROR</span>    The device <span class="hljs-string">&quot;小爱音箱-7838 (DLNA)&quot;</span> failed <span class="hljs-keyword">to</span> play! (500) - <span class="hljs-string">&quot;小爱音箱-7838 (DLNA)&quot;</span> : Could <span class="hljs-keyword">not</span> <span class="hljs-built_in">find</span> a suitable encoder!<br></code></pre></td></tr></table></figure>
+<p>这是因为没有识别到兼容的编码器导致的，修复方法也很简单，启动时加个参数就行<br><code>--disable-mimetype-check</code><br><img src="/img/2022/05/01/4.jpg" srcset="/img/loading.gif" lazyload alt="4"><br>最后加个开机自启，创建文件<code>~/.config/autostart/pulseaudio-dlna.desktop</code>，填入以下内容<br><code>这里我将bin文件移动到了/usr/bin，如果你没有这么做请自行修改Exec下的命令</code></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs desktop">[Desktop Entry]<br>Type=Application<br>Exec=pulseaudio-dlna --disable-mimetype-check<br>Hidden=false<br>NoDisplay=true<br>X-GNOME-Autostart-enabled=true<br>Name[zh_CN]=pulseaudio-dlna<br>Name=pulseaudio-dlna<br>Comment[zh_CN]=<br>Comment=<br></code></pre></td></tr></table></figure>
+<p>也可以通过<code>gnome-session-properties</code>之类的工具设置（上面这个文件就是自动生成的），参见 <a target="_blank" rel="noopener" href="https://blog.csdn.net/lxyoucan/article/details/119108131">https://blog.csdn.net/lxyoucan/article/details/119108131</a><br>最后重启看效果</p>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>当你查看Github仓库<code>masmu/pulseaudio-dlna</code>会发现一个很可惜的事实，这个仓库的最后更新日期是2017年11月2日（截止本文章发布前），也就是说这个项目已经几乎被放弃，当你在5年后的今天尝试去部署这个项目，或许会像我一样发现原仓库已经完全跑不起来了（<br>所以我在这里随手记录一下，说不定就能帮上些人呢（如果帮上你了麻烦在评论告诉我，谢谢 :D）</p>
 
               
             </div>
@@ -324,6 +346,42 @@
             <div>
               <div class="post-metas my-3">
   
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Linux/" class="category-chain-item">Linux</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/Linux/">#Linux</a>
+      
+        <a href="/tags/Arch/">#Arch</a>
+      
+        <a href="/tags/Ubuntu/">#Ubuntu</a>
+      
+        <a href="/tags/Pulseaudio/">#Pulseaudio</a>
+      
+        <a href="/tags/Pulseaudio-dlna/">#Pulseaudio-dlna</a>
+      
+    </div>
   
 </div>
 
@@ -333,8 +391,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Hello World</div>
-      <div>https://blog.qqcn.xyz/2022/05/01/hello-world/</div>
+      <div>2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna</div>
+      <div>https://blog.qqcn.xyz/2022/05/01/Install-Pulseaudio-dlna-On-Arch-And-Ubuntu/</div>
     </div>
     <div class="license-meta">
       
@@ -376,15 +434,15 @@
                   <article class="post-prev col-6">
                     
                     
+                      <a href="/2022/05/01/hello-world/" title="Hello World">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2022/05/01/Install-Pulseaudio-dlna-On-Arch-And-Ubuntu/" title="2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna">
-                        <span class="hidden-mobile">2022年，如何优雅的在Arch或Ubuntu上安装Pulseaudio-dlna</span>
-                        <span class="visible-mobile">下一篇</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>
